@@ -5,7 +5,10 @@ Simple scripts just use the AWS and Azure CLI tool respectively to query the acc
 These scripts assume the AWS/Azure CLI tools are already installed and authenticated to your account
 
 
-## Example AWS 
+## AWS EC2 Count Usage 
+The AWS script will prompt you to select an available AWS profile on your machine and count all EC2 instances across all regions.
+This script was created to query a single AWS account and was not tested running across all AWS accounts in an AWS Organization.
+
 ```
 ./awscount.sh 
 
@@ -37,4 +40,19 @@ EC2 instances in us-west-2: 13
 Timestamp: Mon Nov 21 11:40:20 CST 2022
 Profile: default
 Total EC2 instances in AWS Account 123456789012: 110
+```
+
+## Azure VM Count Usage
+The Azure script will use the existing Azure CLI Tenant/Subscription and count all VMs across all regions.
+This script does not prompt you to select/change the Tenant/Subscription so you will need to set that prior to running the script.
+
+```
+./azurecount.sh 
+
+----------------------------------
+Timestamp: Mon Nov 21 11:46:56 CST 2022
+Azure Tenant: 12345678-9012-3456-7890-123456789012
+Azure Subscription: 22345678-9012-3456-7890-123456789013
+Azure Virtual Machines: 50
+----------------------------------
 ```

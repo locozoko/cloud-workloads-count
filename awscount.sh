@@ -1,5 +1,7 @@
 #!/bin/bash
 set -e
+
+#Check and prompt to select an AWS profile
 echo ""
 allprofiles=$(cat ~/.aws/credentials | grep "\[" | sed 's/[][]//g')
 echo "Available AWS Profiles: "
@@ -15,8 +17,10 @@ source_profile=${AWS_PROFILE}  # The "source_profile" in your aws-cli config
 i=1
 sum=0
 
+#Count EC2 instances in all regions in the selected AWS account
+
 for account in $accounts; do
-  # Sample command 1: Get the current account id (should match)
+  # Get the current account id (should match)
   this_account=$(  aws sts get-caller-identity \
                      --output text \
                      --query 'Account')
@@ -30,6 +34,8 @@ for account in $accounts; do
     i=$((i + 1))
   done
 done
+
+#Display output of all EC2 instances and save to awscount.log file
 current=$(date)
 echo
 echo "----------------------" | tee -a awscount.log
