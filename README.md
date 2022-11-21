@@ -1,8 +1,8 @@
-# cloud-workloads-count
-Count the number of Cloud Workloads in AWS and Azure
+# Cloud Workloads Counter
+## Zscaler Workloads Communications
 
-Simple scripts just use the AWS and Azure CLI tool respectively to query the accounts
-These scripts assume the AWS/Azure CLI tools are already installed and authenticated to your account
+These scripts count the number of Cloud Workloads in AWS and Azure using the CLI tools. 
+This can help make it easier to determinate the total Workload quantities for licensing.
 
 
 ## AWS EC2 Count Usage 
